@@ -160,7 +160,7 @@ nav .btn{height:46px;padding:0 20px;font-size:15px}
 .svc .paid{position:absolute;right:12px;top:12px;padding:6px 11px;border-radius:999px;background:rgba(74,222,128,.14);border:1px solid rgba(74,222,128,.35);color:var(--ok);font-size:12px;font-weight:600;opacity:0;transform:scale(.7);transition:.35s cubic-bezier(.2,.8,.2,1)}
 .svc.hit{border-color:rgba(74,222,128,.5);box-shadow:0 0 0 1px rgba(74,222,128,.2),0 20px 60px -20px rgba(74,222,128,.4)}
 .svc.hit .paid{opacity:1;transform:none}
-.svc.hide{opacity:.12;transform:scale(.95);pointer-events:none}
+.svc.hide{display:none}
 .note{margin-top:28px;padding:20px 24px;border-radius:20px;border:1px solid rgba(200,255,90,.25);background:rgba(200,255,90,.05);display:flex;gap:14px;align-items:center;color:#e9ffb8}
 
 /* ЦИФРЫ И СРАВНЕНИЕ */
@@ -620,14 +620,14 @@ footer .docs{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-
   }
 
   /* сервисы */
-  var S=[["ChatGPT","ai","#10a37f","AI","$20"],["Claude","ai","#d97757","C","$20"],["Midjourney","ai","#7c3aed","M","$10"],["Cursor","ai","#2b2b2b","⌘","$20"],["Gemini","ai","#4285f4","G","$20"],
-         ["Netflix","video","#e50914","N","$9,99"],["Spotify","video","#1db954","S","$5,99"],["YouTube Premium","video","#ff0000","▶","$7,99"],["Disney+","video","#113ccf","D","$8,99"],["Apple Music","video","#fc3c44","♪","$5,99"],
-         ["Steam","game","#1b2838","S","$59"],["PlayStation Store","game","#0070d1","PS","$69"],["Xbox Game Pass","game","#107c10","X","$9,99"],["Roblox","game","#e2231a","R","$9,99"],["Epic Games","game","#2a2a2a","E","$29"],
-         ["App Store","store","#0a84ff","A","$2,99"],["iCloud+","store","#3693f5","☁","$0,99"],["Google Play","store","#34a853","▶","$4,99"],["Google One","store","#fbbc04","1","$1,99"],["Nintendo eShop","store","#e60012","N","$19"]];
+  var S=[["ChatGPT","ai","#10a37f","AI","$20"],["Claude","ai","#d97757","C","$20"],["Midjourney","ai","#7c3aed","M","$10"],["Cursor","ai","#2b2b2b","⌘","$20"],["Gemini","ai","#4285f4","G","$20"],["Perplexity","ai","#20b8cd","P","$20"],["Suno","ai","#111","S","$10"],["Grok","ai","#111","X","$30"],["Runway","ai","#1f1f1f","R","$15"],["ElevenLabs","ai","#000","11","$5"],
+         ["Netflix","video","#e50914","N","$9,99"],["Spotify","video","#1db954","S","$5,99"],["YouTube Premium","video","#ff0000","▶","$7,99"],["Disney+","video","#113ccf","D","$8,99"],["Apple Music","video","#fc3c44","♪","$5,99"],["HBO Max","video","#5a2d9c","H","$9,99"],["Twitch","video","#9146ff","T","$4,99"],["Apple TV+","video","#1c1c1e","TV","$9,99"],["Crunchyroll","video","#f47521","C","$7,99"],["Deezer","video","#a238ff","D","$5,99"],
+         ["Steam","game","#1b2838","S","$59"],["PlayStation Store","game","#0070d1","PS","$69"],["Xbox Game Pass","game","#107c10","X","$9,99"],["Roblox","game","#e2231a","R","$9,99"],["Epic Games","game","#2a2a2a","E","$29"],["Nintendo eShop","game","#e60012","N","$19"],["Battle.net","game","#148eff","B","$39"],["EA App","game","#ff4747","EA","$9,99"],["Fortnite","game","#1f6fff","F","$7,99"],["Genshin Impact","game","#3b5bdb","G","$4,99"],
+         ["App Store","store","#0a84ff","A","$2,99"],["iCloud+","store","#3693f5","☁","$0,99"],["Google Play","store","#34a853","▶","$4,99"],["Google One","store","#fbbc04","1","$1,99"],["Apple One","store","#111","1","$19,95"],["YouTube Music","store","#ff0000","♪","$9,99"],["Google Workspace","store","#4285f4","W","$7"],["Apple Arcade","store","#1c1c1e","A","$6,99"],["Gmail Storage","store","#ea4335","G","$1,99"],["Play Pass","store","#01875f","P","$4,99"]];
   var g=$("#grid");g.innerHTML=S.map(function(s){return '<div class="svc" data-f="'+s[1]+'"><div class="mark" style="background:'+s[2]+'">'+s[3]+'</div><div><b>'+s[0]+'</b><br><small>подписка '+s[4]+'</small></div><span class="paid">Оплачено '+s[4]+'</span></div>'}).join("");
   var cards=$$(".svc"),gi=0;
   setInterval(function(){var vis=cards.filter(function(c){return !c.classList.contains("hide")});if(!vis.length)return;cards.forEach(function(c){c.classList.remove("hit")});vis[gi%vis.length].classList.add("hit");gi+=7},1500);
-  $("#tabs").addEventListener("click",function(e){var b=e.target.closest(".tab");if(!b)return;$$(".tab").forEach(function(t){t.classList.toggle("on",t===b)});cards.forEach(function(c){c.classList.toggle("hide",b.dataset.f!=="all"&&c.dataset.f!==b.dataset.f)})});
+  $("#tabs").addEventListener("click",function(e){var b=e.target.closest(".tab");if(!b)return;$$(".tab").forEach(function(t){t.classList.toggle("on",t===b)});cards.forEach(function(c){c.classList.toggle("hide",b.dataset.f!=="all"&&c.dataset.f!==b.dataset.f)});$("#grid").scrollTo({left:0});gi=0});
 
   /* пуш о выпуске карты */
   var PEOPLE=[["Алексей","Москва","m",12],["Марина","Санкт-Петербург","f",47],["Дмитрий","Казань","m",59],["Анна","Екатеринбург","f",32],["Сергей","Новосибирск","m",68],
