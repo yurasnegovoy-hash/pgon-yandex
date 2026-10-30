@@ -250,6 +250,7 @@ footer .docs{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-
 .hero-center .cta-row{justify-content:center}
 .hero-center .proof{justify-items:center;text-align:center;border-top:0;margin-top:30px;padding-top:0}
 .hero-center .card-scene{width:100%;height:680px;margin-top:70px}
+.hero .horizon{top:900px}
 .orbit{position:absolute;left:50%;top:50%;width:640px;height:640px;margin:-320px 0 0 -320px;animation:orb 40s linear infinite;pointer-events:none}
 @keyframes orb{to{transform:rotate(360deg)}}
 .orbit .o{position:absolute;left:50%;top:50%;width:0;height:0}
@@ -257,8 +258,8 @@ footer .docs{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-
 @keyframes unorb{to{transform:translate(-50%,-50%) translateY(-320px) rotate(-360deg)}}
 .orbit .o span i{width:9px;height:9px;border-radius:50%}
 .orbit::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(168,85,247,.25)}
-@media(max-width:960px){.orbit{width:460px;height:460px;margin:-230px 0 0 -230px}.orbit .o span{transform:translate(-50%,-50%) translateY(-230px);font-size:12px;padding:7px 11px}@keyframes unorb{to{transform:translate(-50%,-50%) translateY(-230px) rotate(-360deg)}}.hero-center .card-scene{height:520px}}
-@media(max-width:600px){.hero-center .card-scene{height:470px;order:0;margin-top:40px}.orbit{width:350px;height:350px;margin:-175px 0 0 -175px}.orbit .o span{transform:translate(-50%,-50%) translateY(-175px);font-size:11px;padding:5px 9px;gap:6px}@keyframes unorb{to{transform:translate(-50%,-50%) translateY(-175px) rotate(-360deg)}}.spin{width:190px}.card-glow{width:240px;height:240px}.hero-center .proof{grid-template-columns:repeat(3,1fr);width:100%}.hero{padding-bottom:30px}.eyebrow{text-align:center}}
+@media(max-width:960px){.hero .horizon{top:1000px}.orbit{width:460px;height:460px;margin:-230px 0 0 -230px}.orbit .o span{transform:translate(-50%,-50%) translateY(-230px);font-size:12px;padding:7px 11px}@keyframes unorb{to{transform:translate(-50%,-50%) translateY(-230px) rotate(-360deg)}}.hero-center .card-scene{height:520px}}
+@media(max-width:600px){.hero-center .card-scene{height:470px;order:0;margin-top:40px}.orbit{width:350px;height:350px;margin:-175px 0 0 -175px}.orbit .o span{transform:translate(-50%,-50%) translateY(-175px);font-size:11px;padding:5px 9px;gap:6px}@keyframes unorb{to{transform:translate(-50%,-50%) translateY(-175px) rotate(-360deg)}}.spin{width:190px}.card-glow{width:240px;height:240px}.hero-center .proof{grid-template-columns:repeat(3,1fr);width:100%}.hero{padding-bottom:30px}.eyebrow{text-align:center}.hero .horizon{top:1150px}}
 /* Все заголовки секций по центру, в две строки */
 .sec-head{flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:44px}
 .sec-head h2{max-width:720px}
