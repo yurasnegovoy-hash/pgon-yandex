@@ -260,6 +260,20 @@ footer .docs{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-
 .orbit::before{content:"";position:absolute;inset:0;border-radius:50%;border:1px dashed rgba(168,85,247,.25)}
 @media(max-width:960px){.hero .horizon{top:1000px}.orbit{width:460px;height:460px;margin:-230px 0 0 -230px}.orbit .o span{transform:translate(-50%,-50%) translateY(-230px);font-size:12px;padding:7px 11px}@keyframes unorb{to{transform:translate(-50%,-50%) translateY(-230px) rotate(-360deg)}}.hero-center .card-scene{height:520px}}
 @media(max-width:600px){.hero-center .card-scene{height:470px;order:0;margin-top:40px}.orbit{width:350px;height:350px;margin:-175px 0 0 -175px}.orbit .o span{transform:translate(-50%,-50%) translateY(-175px);font-size:11px;padding:5px 9px;gap:6px}@keyframes unorb{to{transform:translate(-50%,-50%) translateY(-175px) rotate(-360deg)}}.spin{width:190px}.card-glow{width:240px;height:240px}.hero-center .proof{grid-template-columns:repeat(3,1fr);width:100%}.hero{padding-bottom:30px}.eyebrow{text-align:center}.hero .horizon{top:1150px}}
+/* Анимация в левой карточке: мини-карта и бейдж «Оплачено» с перебором сервисов */
+.paytile{position:relative;width:164px;height:164px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid var(--line);align-self:center;display:grid;place-items:center;overflow:visible}
+.pcard{width:120px;height:76px;border-radius:12px;background:linear-gradient(135deg,#140d22,#3b1d6e 55%,#8b45f0);border:1px solid rgba(255,255,255,.25);position:relative;animation:ptilt 4s ease-in-out infinite;box-shadow:0 20px 40px -16px rgba(124,58,237,.9)}
+@keyframes ptilt{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-5px)}}
+.pchip{position:absolute;left:12px;top:12px;width:20px;height:15px;border-radius:4px;background:linear-gradient(135deg,#f4e3b0,#b8964a)}
+.pvisa{position:absolute;right:10px;bottom:8px;font-family:var(--display);font-style:italic;font-weight:800;font-size:14px}
+.pbadge{position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);display:flex;align-items:center;gap:7px;padding:7px 11px;border-radius:999px;background:rgba(14,11,22,.95);border:1px solid rgba(74,222,128,.45);white-space:nowrap;box-shadow:0 10px 30px -10px rgba(74,222,128,.6);animation:ppop 4s ease-in-out infinite}
+@keyframes ppop{0%,8%{opacity:0;transform:translateX(-50%) translateY(8px) scale(.9)}18%,92%{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}100%{opacity:0;transform:translateX(-50%) translateY(8px) scale(.9)}}
+.pbadge i{width:18px;height:18px;border-radius:50%;background:var(--ok);color:var(--bg);font-style:normal;font-weight:800;font-size:11px;display:grid;place-items:center}
+.pbadge b{font-size:12px}
+.pbadge em{font-style:normal;font-size:12px;color:var(--muted);display:grid}
+.pbadge em span{grid-area:1/1;opacity:0;animation:pcycle 16s infinite}
+.pbadge em span:nth-child(2){animation-delay:4s}.pbadge em span:nth-child(3){animation-delay:8s}.pbadge em span:nth-child(4){animation-delay:12s}
+@keyframes pcycle{0%,22%{opacity:1}25%,100%{opacity:0}}
 /* Все заголовки секций по центру, в две строки */
 .sec-head{flex-direction:column;align-items:center;text-align:center;gap:16px;margin-bottom:44px}
 .sec-head h2{max-width:720px}
@@ -405,6 +419,7 @@ footer .docs{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-
     <div class="sec-head reveal"><h2>Одно решение на две проблемы</h2><p>Один баланс закрывает и подписки за рубежом,<br>и покупки дома</p></div>
     <div class="two">
       <div class="task a reveal"><span class="tag">Зарубежные сервисы</span>
+        <div class="paytile"><div class="pcard"><span class="pchip"></span><span class="pvisa">VISA</span></div><div class="pbadge"><i>✓</i><b>Оплачено</b><em><span>ChatGPT $20</span><span>Netflix $9,99</span><span>Claude $20</span><span>Spotify $5,99</span></em></div></div>
         <h3>Подписка снова не оплатилась?</h3>
         <p>ChatGPT, Netflix и App Store не принимают российские карты. Карта Visa за $8 с реальными реквизитами решает это за 2 минуты, а если оплата не прошла, деньги остаются на балансе</p>
         <div class="kpi"><div><b>$8</b><span>единоразово за выпуск</span></div><div><b>2 мин</b><span>до готовой карты</span></div><div><b>0%</b><span>комиссия за пополнение</span></div></div>
