@@ -1,7 +1,6 @@
 <!-- PGON лендинг под Яндекс: вставить целиком в блок T123 (Other → HTML-код). Логотип грузится с GitHub Pages, при переносе на Тильду заменить адрес картинки -->
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600;700;800;900&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* сброс отступов контейнера Тильды вокруг блока */
 .t123{padding:0!important} .t123 .t-container{max-width:none!important;padding:0!important} .t-rec{padding:0!important}
 #pgon-land{background:#07060b;color:#f5f2fc;font-family:Onest,system-ui,sans-serif;font-size:17px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
@@ -314,9 +313,9 @@ footer .docs{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-
 @media(max-width:600px){.wins{margin-inline:auto;text-align:left}.proof{justify-content:center;text-align:center}}
 /* Слайдеры: горизонтальная лента со снапом, стрелки и точки, экономят высоту */
 .sl{position:relative}
-.sl .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.sl .rail{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 0 6px;align-items:stretch;-webkit-overflow-scrolling:touch}
 .sl .rail::-webkit-scrollbar{display:none}
-.sl .rail>*{scroll-snap-align:start;flex:0 0 auto}
+.sl .rail>*{scroll-snap-align:start;flex:0 0 auto;touch-action:pan-x pan-y}
 .sl .ctl{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
 .sl .dots{display:flex;gap:6px}
 .sl .dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:.3s}

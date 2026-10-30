@@ -319,9 +319,9 @@ footer .docs{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-
 @media(max-width:600px){.wins{margin-inline:auto;text-align:left}.proof{justify-content:center;text-align:center}}
 /* Слайдеры: горизонтальная лента со снапом, стрелки и точки, экономят высоту */
 .sl{position:relative}
-.sl .rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.sl .rail{display:flex;gap:14px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 0 6px;align-items:stretch;-webkit-overflow-scrolling:touch}
 .sl .rail::-webkit-scrollbar{display:none}
-.sl .rail>*{scroll-snap-align:start;flex:0 0 auto}
+.sl .rail>*{scroll-snap-align:start;flex:0 0 auto;touch-action:pan-x pan-y}
 .sl .ctl{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
 .sl .dots{display:flex;gap:6px}
 .sl .dots i{width:6px;height:6px;border-radius:50%;background:var(--line);transition:.3s}
