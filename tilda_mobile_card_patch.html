@@ -1,0 +1,24 @@
+<!-- PGON: анимация карты и орбиты сервисов на телефоне как на компьютере.
+     Вставить в самый конец кода блока T123 на pgonpay.ru, после всего остального, и опубликовать.
+     Отменяет скрытие орбиты на экранах до 600 px и сжатие карты до 190 px:
+     карта остаётся в полном размере 300 px и уменьшается целиком через scale, поэтому ничего внутри не наезжает. -->
+<style>
+@keyframes unorbm{to{transform:translate(-50%,-50%) translateY(-140px) rotate(-360deg)}}
+@media(max-width:600px){
+  #pgon-land .orbit{display:block!important;width:280px;height:280px;margin:-140px 0 0 -140px}
+  #pgon-land .orbit .o span{transform:translate(-50%,-50%) translateY(-140px);animation-name:unorbm;font-size:10px;padding:5px 8px;gap:5px}
+  #pgon-land .orbit .o span i{width:7px;height:7px}
+  #pgon-land .spin{width:300px!important;scale:.6}
+  #pgon-land .card-glow{width:220px;height:220px}
+  #pgon-land .hero-center .card-scene{height:360px;margin-top:30px}
+}
+</style>
+<script>
+(function(){
+  var ORB=[["ChatGPT","#10a37f"],["Claude","#d97757"],["Netflix","#e50914"],["Spotify","#1db954"],["YouTube","#ff0000"],["App Store","#0a84ff"],["Google Play","#34a853"],["Steam","#66c0f4"],["Midjourney","#7c3aed"],["QR СБП","#c8ff5a"]];
+  var ob=document.getElementById("orbit");
+  if(ob&&!ob.children.length){
+    ob.innerHTML=ORB.map(function(l,i){return '<div class="o" style="transform:rotate('+(360/ORB.length*i)+'deg)"><span style="animation-delay:-'+(40/ORB.length*i)+'s"><i style="background:'+l[1]+'"></i>'+l[0]+'</span></div>'}).join("");
+  }
+})();
+</script>
